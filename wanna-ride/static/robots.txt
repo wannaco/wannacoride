@@ -3,4 +3,4 @@ User-agent: *
 Disallow:
 
 # Sitemap
-Sitemap: https://wannacoride.pages.dev/sitemap.xml
+Sitemap: https://ride.guana.co/sitemap.xml

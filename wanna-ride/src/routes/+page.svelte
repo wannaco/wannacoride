@@ -71,7 +71,7 @@
 			"@type": "LocalBusiness",
 			"name": "Wanna Ride",
 			"description": "Safe, reliable airport transfers and custom tours in El Salvador. Punctual service to beaches, volcanoes, and cities.",
-			"url": "https://wannacoride.pages.dev",
+			"url": "https://ride.guana.co",
 			"telephone": "+50376312050",
 			"priceRange": "$$",
 			"areaServed": {
@@ -88,8 +88,8 @@
 				"latitude": "13.7942",
 				"longitude": "-88.8965"
 			},
-			"logo": "https://wannacoride.pages.dev/logo_small.png",
-			"image": "https://wannacoride.pages.dev/logo_small.png",
+			"logo": "https://ride.guana.co/logo_small.png",
+			"image": "https://ride.guana.co/logo_small.png",
 			"hasOfferCatalog": {
 				"@type": "OfferCatalog",
 				"name": "Transportation Services",
@@ -121,8 +121,8 @@
 			"@context": "https://schema.org",
 			"@type": "Organization",
 			"name": "Wanna Ride",
-			"url": "https://wannacoride.pages.dev",
-			"logo": "https://wannacoride.pages.dev/logo_small.png",
+			"url": "https://ride.guana.co",
+			"logo": "https://ride.guana.co/logo_small.png",
 			"contactPoint": {
 				"@type": "ContactPoint",
 				"telephone": "+50376312050",
