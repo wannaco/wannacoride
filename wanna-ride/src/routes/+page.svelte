@@ -63,11 +63,95 @@
 	});
 </script>
 
+<svelte:head>
+	<!-- Structured Data - LocalBusiness Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": "Wanna Ride",
+			"description": "Safe, reliable airport transfers and custom tours in El Salvador. Punctual service to beaches, volcanoes, and cities.",
+			"url": "https://wannacoride.pages.dev",
+			"telephone": "+50376312050",
+			"priceRange": "$$",
+			"areaServed": {
+				"@type": "Country",
+				"name": "El Salvador"
+			},
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "SV",
+				"addressLocality": "El Salvador"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "13.7942",
+				"longitude": "-88.8965"
+			},
+			"logo": "https://wannacoride.pages.dev/logo_small.png",
+			"image": "https://wannacoride.pages.dev/logo_small.png",
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Transportation Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Airport Transfer Service",
+							"description": "Safe and reliable airport transportation in El Salvador"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Custom Tour Service",
+							"description": "Private custom tours to El Salvador beaches, volcanoes, and cities"
+						}
+					}
+				]
+			}
+		}
+	</script>
+	
+	<!-- Structured Data - Organization Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Wanna Ride",
+			"url": "https://wannacoride.pages.dev",
+			"logo": "https://wannacoride.pages.dev/logo_small.png",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+50376312050",
+				"contactType": "customer service",
+				"areaServed": "SV",
+				"availableLanguage": ["English", "Spanish"]
+			}
+		}
+	</script>
+	
+	<!-- Cal.com Booking Integration -->
+	<script type="text/javascript">
+		(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://schedule.thinkcloud.dev/embed/embed.js", "init");
+		
+		// Initialize Tour booking
+		Cal("init", "tour", {origin:"https://schedule.thinkcloud.dev"});
+		Cal.ns.tour("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+		
+		// Initialize Airport booking
+		Cal("init", "airport", {origin:"https://schedule.thinkcloud.dev"});
+		Cal.ns.airport("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+	</script>
+</svelte:head>
+
 <main class="relative min-h-screen flex flex-col p-4 md:p-[18px] box-border">
 	<!-- Header -->
 	<header class="relative z-30 flex items-center justify-between gap-4 max-w-[1100px] w-full mx-auto mb-4 md:mb-[18px]">
 		<div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white/[0.62] border border-[#0b2a3a]/10 backdrop-blur-[8px] shadow-[0_12px_30px_rgba(3,35,52,0.12)]" aria-label="Wanna Ride">
-			<img class="block h-[60px] md:h-[60px] w-auto object-contain" src="/logo_small.png" alt="Wanna Ride" />
+			<img class="block h-[60px] md:h-[60px] w-auto object-contain" src="/logo_small.png" alt="Wanna Ride - El Salvador Airport Transfers and Tours Logo" width="60" height="60" />
 			<span class="font-black tracking-[0.12em] text-sm text-[#0b2a3a]">{copy.brand}</span>
 			<span class="font-black tracking-[0.12em] text-sm text-[#1e64b7]">{copy.brandAccent}</span>
 		</div>
@@ -182,25 +266,14 @@
 				class="absolute -right-[18px] md:-right-[44px] -bottom-[10px] md:-bottom-[14px] h-auto select-none pointer-events-none" 
 				style="width: min(520px, 72vw); transform: scaleX(-1); filter: drop-shadow(0 18px 35px rgba(3, 35, 52, 0.16)); -webkit-user-drag: none;"
 				src="/palms.png" 
-				alt="" 
+				alt="Palm trees on El Salvador beach" 
+				loading="lazy"
+				width="520"
+				height="240"
 			/>
 		</div>
 	</section>
 </main>
-
-<svelte:head>
-	<script type="text/javascript">
-		(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://schedule.thinkcloud.dev/embed/embed.js", "init");
-		
-		// Initialize Tour booking
-		Cal("init", "tour", {origin:"https://schedule.thinkcloud.dev"});
-		Cal.ns.tour("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-		
-		// Initialize Airport booking
-		Cal("init", "airport", {origin:"https://schedule.thinkcloud.dev"});
-		Cal.ns.airport("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-	</script>
-</svelte:head>
 
 <!-- Footer -->
 <footer class="bg-accent/5 p-4 text-center text-sm text-accent">
