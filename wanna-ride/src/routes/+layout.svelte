@@ -54,11 +54,12 @@
 </svelte:head>
 
 <style>
-	:global(html, body) {
+	:global(html) {
 		height: 100%;
 	}
 
 	:global(body) {
+		min-height: 100%;
 		margin: 0;
 		font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
 			"Apple Color Emoji", "Segoe UI Emoji";

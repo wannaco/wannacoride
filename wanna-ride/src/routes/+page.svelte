@@ -147,7 +147,7 @@
 	</script>
 </svelte:head>
 
-<main class="relative min-h-screen flex flex-col p-4 md:p-[18px] box-border">
+<main class="relative flex flex-col p-4 md:p-[18px] box-border w-full max-w-full overflow-x-hidden">
 	<!-- Header -->
 	<header class="relative z-30 flex items-center justify-between gap-4 max-w-[1100px] w-full mx-auto mb-4 md:mb-[18px]">
 		<div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white/[0.62] border border-[#0b2a3a]/10 backdrop-blur-[8px] shadow-[0_12px_30px_rgba(3,35,52,0.12)]" aria-label="Wanna Ride">
@@ -175,75 +175,87 @@
 	</header>
 
 	<!-- Hero Section -->
-	<section class="relative z-20 flex-1 max-w-[1100px] w-full mx-auto rounded-[26px] overflow-hidden shadow-[0_30px_80px_rgba(3,35,52,0.18)]" style="background: linear-gradient(180deg, rgba(159, 208, 255, 1) 0%, rgba(159, 208, 255, 1) 55%, #f5c343 55%, #f5c343 100%);" aria-label="Hero">
-		<!-- Sky Decorations -->
-		<div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
-			<!-- Sun -->
-			<div class="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-95" style="background: radial-gradient(circle at 30% 30%, #fff7d1 0%, #ffd56d 42%, #ffb63e 100%); filter: blur(0.2px);"></div>
-			
-			<!-- Clouds -->
-			<div class="absolute top-[70px] left-[6%] w-[220px] h-[70px] rounded-full bg-white/65 opacity-65" style="filter: blur(0.2px);">
-				<div class="absolute w-[90px] h-[90px] left-[30px] -top-[35px] bg-white/65 rounded-full"></div>
-				<div class="absolute w-[110px] h-[110px] left-[100px] -top-[55px] bg-white/65 rounded-full"></div>
-			</div>
-			<div class="absolute top-[140px] left-[58%] w-[220px] h-[70px] rounded-full bg-white/65 opacity-50 scale-90" style="filter: blur(0.2px);">
-				<div class="absolute w-[90px] h-[90px] left-[30px] -top-[35px] bg-white/65 rounded-full"></div>
-				<div class="absolute w-[110px] h-[110px] left-[100px] -top-[55px] bg-white/65 rounded-full"></div>
-			</div>
-		</div>
+	<section class="relative z-20 max-w-[1100px] w-full mx-auto rounded-[26px] overflow-hidden shadow-[0_30px_80px_rgba(3,35,52,0.18)]" aria-label="Hero">
 
-		<!-- Content -->
-		<div class="relative z-10 pt-[34px] px-[26px] pb-[180px] md:pb-[220px] box-border">
-			<p class="m-0 font-black tracking-[0.08em] uppercase text-[#0b2a3a]/70 text-xs">{copy.topline}</p>
-			<h1 class="mt-3 mb-0 text-[clamp(34px,4.5vw,58px)] leading-[1.03] tracking-[-0.02em] text-[#0b2a3a]">{copy.heroTitle}</h1>
-			<p class="mt-3.5 mb-0 text-[clamp(16px,2vw,20px)] text-[#0b2a3a]/78 max-w-[54ch]">{copy.heroSubtitle}</p>
-
-			<!-- Cards -->
-			<div class="mt-[22px] grid md:grid-cols-[1.1fr_0.9fr] grid-cols-1 gap-3.5">
-				<!-- Guarantee Card -->
-				<div class="rounded-[18px] p-[18px] bg-white/60 backdrop-blur-[10px] border border-white/50 shadow-[0_20px_50px_rgba(3,35,52,0.14)]" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.55) 100%);">
-					<h2 class="m-0 mb-2.5 font-black tracking-[0.02em] text-base">{copy.bulletsTitle}</h2>
-					<ul class="m-0 pl-[18px] grid gap-2 text-[#0b2a3a]/82 font-bold">
-						{#each copy.bullets as item}
-							<li>{item}</li>
-						{/each}
-					</ul>
-					<p class="mt-[18px] mb-0 max-w-[70ch] text-[#0b2a3a]/70 font-bold text-sm">{copy.footer}</p>
+		<!-- Sky Area: grows naturally with content -->
+		<div class="relative" style="background: #9fd0ff;">
+			<!-- Sky Decorations -->
+			<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+				<!-- Sun -->
+				<div class="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-95" style="background: radial-gradient(circle at 30% 30%, #fff7d1 0%, #ffd56d 42%, #ffb63e 100%); filter: blur(0.2px);"></div>
+				<!-- Clouds -->
+				<div class="absolute top-[70px] left-[6%] w-[220px] h-[70px] rounded-full bg-white/65 opacity-65" style="filter: blur(0.2px);">
+					<div class="absolute w-[90px] h-[90px] left-[30px] -top-[35px] bg-white/65 rounded-full"></div>
+					<div class="absolute w-[110px] h-[110px] left-[100px] -top-[55px] bg-white/65 rounded-full"></div>
 				</div>
+				<div class="absolute top-[140px] left-[58%] w-[220px] h-[70px] rounded-full bg-white/65 opacity-50 scale-90" style="filter: blur(0.2px);">
+					<div class="absolute w-[90px] h-[90px] left-[30px] -top-[35px] bg-white/65 rounded-full"></div>
+					<div class="absolute w-[110px] h-[110px] left-[100px] -top-[55px] bg-white/65 rounded-full"></div>
+				</div>
+			</div>
 
-				<!-- Contact Card -->
-				<div class="rounded-[18px] p-[18px] backdrop-blur-[10px] border border-white/50 shadow-[0_20px_50px_rgba(3,35,52,0.14)]" style="background: linear-gradient(180deg, rgba(30, 100, 183, 0.2) 0%, rgba(255, 255, 255, 0.6) 80%);">
-					<div class="flex items-center gap-3 mb-3.5">
-						<div class="w-11 h-11 rounded-xl grid place-items-center font-black tracking-[0.08em] text-white" style="background: linear-gradient(180deg, #1e64b7 0%, #0b2a3a 100%);">SV</div>
-						<div>
-							<div class="font-black tracking-[0.08em] uppercase text-[11px] text-[#0b2a3a]/72">{copy.contactLabel}</div>
-							<div class="font-black text-[22px] tracking-[0.02em] mt-0.5">{copy.phone}</div>
+			<!-- Content -->
+			<div class="relative z-10 pt-[34px] px-[26px] pb-[26px] box-border">
+				<p class="m-0 font-black tracking-[0.08em] uppercase text-[#0b2a3a]/70 text-xs">{copy.topline}</p>
+				<h1 class="mt-3 mb-0 text-[clamp(34px,4.5vw,58px)] leading-[1.03] tracking-[-0.02em] text-[#0b2a3a]">{copy.heroTitle}</h1>
+				<p class="mt-3.5 mb-0 text-[clamp(16px,2vw,20px)] text-[#0b2a3a]/78 max-w-[54ch]">{copy.heroSubtitle}</p>
+
+				<!-- Cards -->
+				<div class="mt-[22px] grid md:grid-cols-[1.1fr_0.9fr] grid-cols-1 gap-3.5">
+					<!-- Guarantee Card -->
+					<div class="rounded-[18px] p-[18px] backdrop-blur-[10px] border border-white/50 shadow-[0_20px_50px_rgba(3,35,52,0.14)]" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.55) 100%);">
+						<h2 class="m-0 mb-2.5 font-black tracking-[0.02em] text-base">{copy.bulletsTitle}</h2>
+						<ul class="m-0 pl-[18px] grid gap-2 text-[#0b2a3a]/82 font-bold">
+							{#each copy.bullets as item}
+								<li>{item}</li>
+							{/each}
+						</ul>
+						<p class="mt-[18px] mb-0 max-w-[70ch] text-[#0b2a3a]/70 font-bold text-sm">{copy.footer}</p>
+					</div>
+
+					<!-- Contact Card -->
+					<div class="rounded-[18px] p-[18px] backdrop-blur-[10px] border border-white/50 shadow-[0_20px_50px_rgba(3,35,52,0.14)]" style="background: linear-gradient(180deg, rgba(30, 100, 183, 0.2) 0%, rgba(255, 255, 255, 0.6) 80%);">
+						<div class="flex items-center gap-3 mb-3.5">
+							<div class="w-11 h-11 rounded-xl grid place-items-center font-black tracking-[0.08em] text-white" style="background: linear-gradient(180deg, #1e64b7 0%, #0b2a3a 100%);">SV</div>
+							<div>
+								<div class="font-black tracking-[0.08em] uppercase text-[11px] text-[#0b2a3a]/72">{copy.contactLabel}</div>
+								<div class="font-black text-[22px] tracking-[0.02em] mt-0.5">{copy.phone}</div>
+							</div>
+						</div>
+						<div class="mt-3.5 grid grid-cols-1 gap-2.5">
+							<a class="inline-flex items-center justify-center gap-2.5 px-3.5 py-3 rounded-[14px] no-underline font-black tracking-[0.02em] transition-all duration-[120ms] select-none bg-[#0b2a3a] text-white shadow-[0_18px_40px_rgba(3,35,52,0.18)] hover:bg-[#0a2230] hover:shadow-[0_20px_45px_rgba(3,35,52,0.22)] active:translate-y-px" href={waLink} target="_blank" rel="noreferrer">
+								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+								</svg>
+								{copy.ctaPrimary}
+							</a>
+							<a class="inline-flex items-center justify-center gap-2.5 px-3.5 py-3 rounded-[14px] no-underline font-black tracking-[0.02em] transition-all duration-[120ms] select-none bg-white/55 border border-[#0b2a3a]/18 text-[#0b2a3a] hover:bg-white/75 active:translate-y-px" href={telLink}>
+								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+								</svg>
+								{copy.ctaSecondary}
+							</a>
 						</div>
 					</div>
-
-					<div class="mt-3.5 grid grid-cols-1 gap-2.5">
-						<a class="inline-flex items-center justify-center gap-2.5 px-3.5 py-3 rounded-[14px] no-underline font-black tracking-[0.02em] transition-all duration-[120ms] select-none bg-[#0b2a3a] text-white shadow-[0_18px_40px_rgba(3,35,52,0.18)] hover:bg-[#0a2230] hover:shadow-[0_20px_45px_rgba(3,35,52,0.22)] active:translate-y-px" href={waLink} target="_blank" rel="noreferrer">
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-							</svg>
-							{copy.ctaPrimary}
-						</a>
-						<a class="inline-flex items-center justify-center gap-2.5 px-3.5 py-3 rounded-[14px] no-underline font-black tracking-[0.02em] transition-all duration-[120ms] select-none bg-white/55 border border-[#0b2a3a]/18 text-[#0b2a3a] hover:bg-white/75 active:translate-y-px" href={telLink}>
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-							</svg>
-							{copy.ctaSecondary}
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Sand/Beach Bottom -->
-		<div class="absolute left-0 right-0 bottom-0 h-[210px] md:h-[240px] z-10">
-			<!-- Booking Buttons in Sand Area -->
-			<div class="absolute left-4 md:left-8 bottom-4 md:bottom-8 flex flex-col gap-2.5 pointer-events-auto z-20">
-				<button 
+		<!-- Sand Area: fixed height, always below sky content -->
+		<div class="relative h-[210px] md:h-[240px]" style="background: #f5c343;">
+			<!-- Palms - sits in background via DOM order -->
+			<img
+				class="absolute right-0 bottom-0 h-full w-auto select-none pointer-events-none"
+				style="filter: drop-shadow(0 18px 35px rgba(3, 35, 52, 0.16)); -webkit-user-drag: none; transform: scaleX(-1);"
+				src="/palms.png"
+				alt="Palm trees on El Salvador beach"
+				loading="lazy"
+				width="520"
+				height="240"
+			/>
+			<!-- Booking Buttons - in front of palms via DOM order -->
+			<div class="absolute left-4 md:left-8 bottom-4 md:bottom-8 flex flex-col gap-2.5">
+				<button
 					class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-[120ms] select-none bg-[#0b2a3a] text-white shadow-[0_12px_30px_rgba(3,35,52,0.2)] hover:bg-[#0a2230] hover:shadow-[0_16px_35px_rgba(3,35,52,0.25)] active:translate-y-px cursor-pointer border-0"
 					data-cal-link="team/wanna-ride/airport"
 					data-cal-namespace="airport"
@@ -251,7 +263,7 @@
 				>
 					🛫 {lang === 'en' ? 'Book Airport' : 'Reservar Aeropuerto'}
 				</button>
-				<button 
+				<button
 					class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-[120ms] select-none bg-white/95 backdrop-blur-sm border border-[#0b2a3a]/20 text-[#0b2a3a] shadow-[0_12px_30px_rgba(3,35,52,0.15)] hover:bg-white hover:shadow-[0_16px_35px_rgba(3,35,52,0.2)] active:translate-y-px cursor-pointer"
 					data-cal-link="team/wanna-ride/tour"
 					data-cal-namespace="tour"
@@ -260,25 +272,15 @@
 					🏝️ {lang === 'en' ? 'Book Tour' : 'Reservar Tour'}
 				</button>
 			</div>
-			
-			<!-- Palms Image -->
-			<img 
-				class="absolute -right-[18px] md:-right-[44px] -bottom-[10px] md:-bottom-[14px] h-auto select-none pointer-events-none" 
-				style="width: min(520px, 72vw); transform: scaleX(-1); filter: drop-shadow(0 18px 35px rgba(3, 35, 52, 0.16)); -webkit-user-drag: none;"
-				src="/palms.png" 
-				alt="Palm trees on El Salvador beach" 
-				loading="lazy"
-				width="520"
-				height="240"
-			/>
 		</div>
+
 	</section>
 </main>
 
 <!-- Footer -->
-<footer class="bg-accent/5 p-4 text-center text-sm text-accent">
+<footer class="p-4 text-center text-sm" style="color: #0b2a3a99;">
 	<p class="m-0">
 		{lang === 'en' ? 'Developed by' : 'Desarrollado por'}
-		<a class="font-semibold hover:opacity-70 transition-opacity" href="https://thinkcloud.dev/" target="_blank" rel="noopener noreferrer">ThinkCloud</a>
+		<a class="font-semibold hover:opacity-70 transition-opacity" style="color: #1e64b7;" href="https://thinkcloud.dev/" target="_blank" rel="noopener noreferrer">ThinkCloud</a>
 	</p>
 </footer>
