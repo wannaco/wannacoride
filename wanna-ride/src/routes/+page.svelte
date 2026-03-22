@@ -281,6 +281,6 @@
 <footer class="p-4 text-center text-sm" style="color: #0b2a3a99;">
 	<p class="m-0">
 		{lang === 'en' ? 'Developed by' : 'Desarrollado por'}
-		<a class="font-semibold hover:opacity-70 transition-opacity" style="color: #1e64b7;" href="https://thinkcloud.dev/" target="_blank" rel="noopener noreferrer">ThinkCloud</a>
+		<a class="font-bold text-base hover:opacity-70 transition-opacity" style="color: #1e64b7;" href="https://thinkcloud.dev/" target="_blank" rel="noopener noreferrer">ThinkCloud</a>
 	</p>
 </footer>
